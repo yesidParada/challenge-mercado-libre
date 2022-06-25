@@ -1,0 +1,58 @@
+.list {
+    width: 100vw;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: $max-space;
+    &__container {
+        width: 78vw;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        box-sizing: content-box;
+        list-style: none;
+    }
+    &__item{
+        display: flex;
+        gap: $min-space;
+        padding: $min-space;
+        box-sizing: border-box;
+        background: white;
+        border-bottom: thin solid $white;
+        width: 100%;
+        
+        img {
+            width: 180px;
+            height: 180px;
+            border-radius: 4px;
+        }
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            gap: $max-space;
+        }
+
+        &--title {
+            font: $font-subtitle;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            p {
+                margin: 0;
+            }
+
+            span {
+                font: $font-text;
+            }
+        }
+
+        &--detail {
+            font: $font-input;
+            width: 50%;
+        }
+    }
+}
