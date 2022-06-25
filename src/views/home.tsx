@@ -1,11 +1,11 @@
 import React from 'react';
 import List from '../components/list/list';
+import RouteComponent from '../components/routeComponent';
+
 const Home = () => {
   return (
     <div>
-        <div className='timeLine__content'>
-            <ol className='timeLine__container'><li className='timeLine__item'>uno</li><li> {'>'} </li><li>dos</li></ol>
-        </div>
+        <RouteComponent />
         <List />
     </div>
   )

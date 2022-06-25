@@ -1,0 +1,17 @@
+.btn {
+    border: transparent;
+    box-sizing: border-box;
+    height: 48px;
+    font-size: 16px;
+    border-radius: 6px;
+
+    &--primary {
+        color: white;
+        background: $blue;
+
+        &:hover {
+            background:  darken($blue, 15%);
+        }
+    }
+
+}

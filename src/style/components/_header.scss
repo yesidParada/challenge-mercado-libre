@@ -7,15 +7,16 @@
     gap: $max-space;
     padding: 8px;
     background: $yellow;
+    box-sizing: border-box;
 
     &_logo {
         width: 5%;
-        height: 39px;
+        height: 100%;
         background: $yellow;
     }
 
     .header_search {
-        height: 39px;
+        height: 100%;
         width: 70vw;
         border: none;
         display: flex;
@@ -29,9 +30,10 @@
             padding: 7px 60px 9px 15px;
             height: 100%;
             border-radius: 2px 0 0 2px;
-            font-size: 18px;
+            font: normal $font-input;
             color: $black;
             background: white;
+            box-sizing: border-box;
 
             &:focus {
                 outline: none;
