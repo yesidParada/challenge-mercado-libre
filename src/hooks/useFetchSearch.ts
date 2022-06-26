@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { ItemSeach, SearchResponse } from '../model/search.model';
+import { addCategories } from '../store/categoriesReducer';
 
 const useFetchSearch = (search: string) => {
+  const dispatch = useDispatch();
   const [state, setState] = useState<{data: ItemSeach [], categories: string[], loading: boolean}> ({
     data: [{
       id: "",
@@ -23,6 +26,7 @@ const useFetchSearch = (search: string) => {
   useEffect(() => {
     getDataIem(search)
     .then((result: SearchResponse) => {
+        dispatch(addCategories(result.categories))
         setState({
             data: result.items,
             categories: result.categories,
