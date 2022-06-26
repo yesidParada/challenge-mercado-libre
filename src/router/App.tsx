@@ -10,6 +10,7 @@ function App() {
       <Header/>
       <Routes >
         <Route path="/" element={<Home/>} />
+        <Route path="/items" element={<Home/>} />
         <Route path="/items/:id" element={<Deatil/>}/>
         <Route path="*" element={<Home/>} />
       </Routes >

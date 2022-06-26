@@ -1,12 +1,19 @@
-import React from 'react';
+import { useLocation } from 'react-router-dom';
 import List from '../components/list/list';
-import RouteComponent from '../components/routeComponent';
+import Breadcrumb from '../components/breadcrumb';
+import useFetchSearch from '../hooks/useFetchSearch';
 
 const Home = () => {
+  let location = useLocation();
+
+  const {search} = location;
+  const {data, categories, loading} = useFetchSearch(`${search}`)
   return (
     <div>
-        <RouteComponent />
-        <List />
+      <Breadcrumb categories={categories} />
+      { !loading &&
+        <List data={data} />
+      }
     </div>
   )
 };
