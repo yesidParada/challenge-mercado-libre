@@ -1,6 +1,6 @@
 import { Author, Item } from "./general.model";
 
-type ItemSeach = Omit<Item, 'soldQuantity' | 'description'>;
+export type ItemSeach = Omit<Item, 'soldQuantity' | 'description'>;
 
 export interface SearchResponse {
     author: Author,

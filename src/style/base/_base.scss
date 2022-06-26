@@ -28,9 +28,17 @@ body {
         width: 78vw;
         list-style: none;
         display: flex;
+        flex-wrap: wrap;
         gap: $min-space;
         padding: $min-space 0;
         margin: 0;
         font: $font-label;
+    }
+    &__item {
+        text-decoration: none;
+
+        &:hover {
+            color: $blue;
+        }
     }
 }

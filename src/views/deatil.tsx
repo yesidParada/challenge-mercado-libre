@@ -1,13 +1,20 @@
-import React from 'react'
+import { useParams } from 'react-router-dom'
 import Card from '../components/card/card'
-import RouteComponent from '../components/routeComponent'
+import Breadcrumb from '../components/breadcrumb'
+import useFetchItem from '../hooks/useFetchItem'
 
 const Deatil = () => {
+
+  let { id } = useParams<string>();
+  const { data, loading} = useFetchItem(`${id}`);
+
   return (
     <div>
-      <RouteComponent />
+      {/* <Breadcrumb /> */}
       <div className='content'>
-        <Card />
+        { !loading &&
+          <Card data={data}/>
+        }
       </div>
     </div>
   )

@@ -1,13 +1,18 @@
 import React from 'react';
+import { ItemSeach } from '../../model/search.model';
 import ListItem from './listItem';
 
-const List = () => {
+const List = (props: { data: ItemSeach[] }) => {
+  const {data} = props;
   return (
     <div className='list'>
         <ul className='list__container'>
           { 
-            [1,2,3,4].map( item => (
-              <ListItem />
+            data.map( (item: ItemSeach) => (
+              <ListItem
+                key={item.id}
+                data={item}
+              />
             ))
           }
         </ul>
