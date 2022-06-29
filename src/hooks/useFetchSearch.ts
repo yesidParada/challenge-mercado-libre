@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ItemSeach, SearchResponse } from '../model/search.model';
 import { addCategories } from '../store/categoriesReducer';
 
+
 const useFetchSearch = (search: string) => {
   const dispatch = useDispatch();
   const [state, setState] = useState<{data: ItemSeach [], categories: string[], loading: boolean}> ({
