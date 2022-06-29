@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Item } from '../model/general.model';
+const { PORT} = process.env;
 
 const useFetchItem = (id: string) => {
   const [state, setState] = useState<{data:Item, loading: boolean}> ({
