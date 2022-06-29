@@ -8,6 +8,7 @@ In the project directory, you can run:
 ### `npm run build`
 
 ### `npm run start:dev`
+in other terminal, you can run: 
 ### `npm start`
 
 Runs the app in the development mode.\
