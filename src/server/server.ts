@@ -51,14 +51,14 @@ server.listen(PORT, () => {
 })
 
 server.use('/', (req, res, next) => {
-    console.log('hello')
-    const test = React.createElement(App, {})
-	fs.readFile(path.resolve('./build/index.html'), 'utf-8', (err, data) => {
-      if (err) {
-        console.log(err)
-        return res.status(500).send("Some error happened")
-      }
+    // console.log('hello')
+    // const test = React.createElement(App, {})
+	// fs.readFile(path.resolve('./build/index.html'), 'utf-8', (err, data) => {
+    //   if (err) {
+    //     console.log(err)
+    //     return res.status(500).send("Some error happened")
+    //   }
       
-      return res.send(data.replace('<div id="root"></div>', `<div id="root">${ReactDOMServer.renderToString(test)}</div>`))
-    })
+    //   return res.send(data.replace('<div id="root"></div>', `<div id="root">${ReactDOMServer.renderToString(test)}</div>`))
+    // })
 })

@@ -1,6 +1,7 @@
+import { FilterType } from "../interfaces/fliter.model";
 import { Author } from "../interfaces/general.model";
 import { ItemSeach } from "../interfaces/search.model";
-import { Result, Price } from "../interfaces/searchResponse.model";
+import { Result, Price, Filter, AvailableFilterValue, FilterValue, AvailableFilter } from "../interfaces/searchResponse.model";
 
 export class Utilities {
     public validateValue(object: any, item: string): boolean {
@@ -34,9 +35,19 @@ export class Utilities {
         return result;
     }
 
-    public generateCategories(data: any): any {
-        const category =  data.find((item: any) => item.id === 'category')
-        return category ? category.values.map((values: any) => values.name ) : []
+    public getCategories(data: Array<Filter | AvailableFilter>): Filter | AvailableFilter {
+        return data.find((item: any) => item.id === 'category');
+    }
+
+    public generateCategories(data: Filter | any, type: FilterType): string[] {
+        if(!data) {
+            return []
+        }
+        if(type === FilterType.available_filters) {
+            return data.map((values: AvailableFilterValue) => values.name)
+        } else {
+            return data.values[0].path_from_root.map((values: FilterValue) => values.name )
+        }
     }
 
 }

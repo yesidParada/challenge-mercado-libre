@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { ItemSeach, SearchResponse } from '../model/search.model';
 import { addCategories } from '../store/categoriesReducer';
 
-const { PORT} = process.env;
 
 const useFetchSearch = (search: string) => {
   const dispatch = useDispatch();

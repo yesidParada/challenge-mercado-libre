@@ -1,5 +1,6 @@
+import { FilterType } from "../interfaces/fliter.model";
 import { querySearch, SearchResponse } from "../interfaces/search.model";
-import { ItemSearchResponse } from "../interfaces/searchResponse.model";
+import { AvailableFilterValue, ItemSearchResponse } from "../interfaces/searchResponse.model";
 import { SearchModel } from "../model/search.model";
 import { Utilities } from "../utils/utilities";
 
@@ -23,9 +24,13 @@ export class SearchController {
         }
         return this.model.getData(query).then( (item:ItemSearchResponse) => {
             response.items = [...this.utilities.generateItems(item.results).slice(0,4)];
-            const categories = this.utilities.generateCategories(item.filters);
+            const categories = this.utilities.generateCategories(this.utilities.getCategories(item.filters), FilterType.filters);
+            
             if(categories.length === 0) {
-                response.categories = [...this.utilities.generateCategories(item.available_filters)];
+                const categoriesList = this.utilities.getCategories(item.available_filters)
+                                        .values.sort((a: AvailableFilterValue, b: AvailableFilterValue) =>  b.results - a.results );
+                
+                response.categories = [...this.utilities.generateCategories(categoriesList, FilterType.available_filters)];
             } else {
                 response.categories = [...categories];
             }

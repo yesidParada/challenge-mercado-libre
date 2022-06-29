@@ -29,7 +29,7 @@ export class ItemController {
                 description: 'string'
             }
         }
-        if (id) {
+        if (!id) {
             return Promise.resolve(response);
         }
         return Promise.all([this.getDataById(id), this.getDataDetailById(id)]).then((items: any) => {
